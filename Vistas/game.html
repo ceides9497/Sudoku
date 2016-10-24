@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sudoku</title>
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+        <div style="height:60%; width:50%; margin:25%; margin-top:5px;">
+            <h2 style="text-align:center">00:00:00</h2>
+            <form>
+                <table>
+                    <tr>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderbottom"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                    <tr>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
+                    </tr>
+                </table>
+            </form>
+            <br>
+           	<button class="menu">Start</button>
+            <button class="menu">Check</button>
+            <button class="menu" onClick="modal()">Finish</button>
+		</div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content" style="width:50%; margin-left:25%; margin-right:25%">
+                <div class="modal-header">
+                <span class="close" onClick="modalClose()">×</span>
+                <h2>New record!</h2>
+                </div>
+
+                <div class="modal-body">
+                	<h1 style="text-align:center">1st Place</h1>
+                    <form action="index.html">
+                    	<input type="text" placeholder="Nickname" class="normalInput"/><br>
+                        <input type="submit" class="menu"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+function modal(){
+	var modal = document.getElementById('myModal');
+	modal.style.display = "block";
+}
+
+function modalClose(){
+	var modal = document.getElementById('myModal');
+	modal.style.display = "none";
+}
+</script>
+</html>

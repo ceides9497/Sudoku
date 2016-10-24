@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sudoku</title>
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+    
+<body>
+	<h1 style="text-align:center; margin-top:15%">SUDOKU</h1>
+    <div style="margin:25%; margin-top:5%">
+        <button id="play" class="mainmenu" onClick="accordion()">Play</button>
+        <div class="panel">        	
+            <button class="menu" onClick="location.href='game.html';">Easy</button>
+            <button class="menu" onClick="location.href='game.html';">Normal</button>
+            <button class="menu" onClick="location.href='game.html';">Hard</button>
+        </div>
+        <button class="mainmenu" onClick="modal()">Leaderboard</button>
+        <div id="myModal" class="modal">        
+            <div class="modal-content">
+                <div class="modal-header">
+                <span class="close" onClick="modalClose()">×</span>
+                <h2>Leaderboard</h2>
+                </div>
+                
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Score</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Kon</td>
+                            <td>01:20:01</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Riasss</td>
+                            <td>01:20:01</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Jintan</td>
+                            <td>01:20:01</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Juxtaposedcliche</td>
+                            <td>01:20:01</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Black</td>
+                            <td>01:20:01</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Giovanni.Red</td>
+                            <td>01:20:01</td>
+                        </tr>
+                         <tr>
+                            <td>7</td>
+                            <td>lilly</td>
+                            <td>01:20:01</td>
+                        </tr>
+                         <tr>
+                            <td>8</td>
+                            <td>Xillian</td>
+                            <td>01:20:01</td>
+                        </tr>
+                         <tr>
+                            <td>9</td>
+                            <td>Gandalf</td>
+                            <td>01:20:01</td>
+                        </tr>
+                         <tr>
+                            <td>10</td>
+                            <td>Kat</td>
+                            <td>01:20:01</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>		
+        </div>
+	</div>
+</body>
+<script>
+function accordion(){
+	var acc = document.getElementById("play");
+	acc.classList.toggle("active");
+	acc.nextElementSibling.classList.toggle("show");
+}
+
+function modal(){
+	var modal = document.getElementById('myModal');
+	modal.style.display = "block";
+}
+
+function modalClose(){
+	var modal = document.getElementById('myModal');
+	modal.style.display = "none";
+}
+</script>
+</html>
