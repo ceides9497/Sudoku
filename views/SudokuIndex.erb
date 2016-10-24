@@ -186,10 +186,10 @@ input[type=number]::-webkit-outer-spin-button {
 
         <div style="height:60%; width:50%; margin:25%; margin-top:5px;">
             <h2 style="text-align:center">00:00:00</h2>
-            <form>
+            <form class="" action="/generar" method="post">
                 <table>
                     <tr>
-                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit" action="/generar"></td>
+                        <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit" name="num"></td>
                         <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
                         <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
                         <td class="sudoku borderSide"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
@@ -288,11 +288,13 @@ input[type=number]::-webkit-outer-spin-button {
                         <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit"></td>
                     </tr>
                 </table>
+
+                <br>
+               	<button class="menu">Start</button>
+                <input class="menu"  type="submit" action="/generar" value="Check"></input>
+                <button class="menu" onClick="modal()">Finish</button>
             </form>
-            <br>
-           	<button class="menu">Start</button>
-            <button class="menu">Check</button>
-            <button class="menu" onClick="modal()">Finish</button>
+
 		</div>
 
         <div id="myModal" class="modal">
