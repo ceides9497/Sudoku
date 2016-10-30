@@ -13,8 +13,8 @@ class Sudoku
   end
 
   def initTable()
-  	table = 1
-  	return table
+  	sudokuTable = 1
+  	return sudokuTable
   end
 
 end

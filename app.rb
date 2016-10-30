@@ -13,7 +13,7 @@ post '/generar' do
 end
 
 post '/gettable' do
-	suoku = Sudoku.new
+	sudoku = Sudoku.new
 	@resp = sudoku.initTable()
 	erb :game
 end
