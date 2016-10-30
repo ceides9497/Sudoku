@@ -11,3 +11,9 @@ post '/generar' do
   resp= sudo.compare(valor)
   "<center><strong>respuesta: </strong>"+resp+"</center>"
 end
+
+post '/getTable' do
+	suoku = Sudoku.new
+	@resp = sudoku.initTable()
+	erb :game
+end
