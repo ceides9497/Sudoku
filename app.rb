@@ -2,7 +2,7 @@ require 'sinatra'
 require_relative 'lib/Sudoku.rb'
 
 get '/' do
-  erb :SudokuIndex
+  erb :index
 end
 
 post '/generar' do
