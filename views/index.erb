@@ -11,9 +11,11 @@
     <div style="margin:25%; margin-top:5%">
         <button id="play" class="mainmenu" onClick="accordion()">Play</button>
         <div class="panel">
-            <input class="menu"  type="submit" action="/getTable" value="Easy"></input>
-            <input class="menu"  type="submit" action="/getTable" value="Normal"></input>
-            <input class="menu"  type="submit" action="/getTable" value="Hard"></input>
+            <form action="/getTable" method="post">
+                <input class="menu"  type="submit" value="Easy"></input>
+                <input class="menu"  type="submit" value="Normal"></input>
+                <input class="menu"  type="submit" value="Hard"></input>
+            </form>
         </div>
         <button class="mainmenu" onClick="modal()">Leaderboard</button>
         <div id="myModal" class="modal">        
