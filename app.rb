@@ -12,7 +12,7 @@ post '/generar' do
   "<center><strong>respuesta: </strong>"+resp+"</center>"
 end
 
-post '/getTable' do
+post '/gettable' do
 	suoku = Sudoku.new
 	@resp = sudoku.initTable()
 	erb :game
