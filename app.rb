@@ -14,6 +14,6 @@ end
 
 post '/gettable' do
 	sudoku = Sudoku.new
-	@resp = sudoku.initTable()
+	@sudokutable = sudoku.initTable()
 	erb :game
 end
