@@ -158,7 +158,7 @@ td.borderbottom{
 	border: none;
 	text-align: center;
 	background: #000;
-	color:#CCC;
+	color: #CCC;
 }
 
 input[type=number]::-webkit-inner-spin-button, 

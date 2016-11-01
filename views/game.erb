@@ -7,7 +7,14 @@
 </head>
 <body>
         <div style="height:60%; width:50%; margin:25%; margin-top:5px;">
-            <h2 style="text-align:center">00:00:00</h2>
+
+            <h2 style="text-align:center">
+            <div id="Horas">00</div>
+            <div id="Minutos">:00</div>
+            <div id="Segundos">:00</div>
+            <div id="Centesimas">:00</div>            
+            </h2>
+
             <form class="" action="/generar" method="post">
                 <table>
                     <% @sudokutable.each do |sudokurow| %>
@@ -25,8 +32,8 @@
                     <% end %>
                 </table>
                 <br>
-               	<button class="menu">Start</button>
-                <input class="menu"  type="submit" action="/generar" value="Check"></input>
+                <input type="button" class="menu" value="Start" onclick="startGame();">
+               	<input class="menu"  type="submit" action="/generar" value="Check"></input>
                 <button class="menu" onClick="modal()">Finish</button>
             </form>
 
@@ -50,6 +57,51 @@
         </div>
 </body>
 <script>
+
+var centesimas = 0;
+var segundos = 0;
+var minutos = 0;
+var horas = 0;
+function startGame () {
+    control = setInterval(chrono,10);
+}
+
+function finishGame () {
+    clearInterval(control);    
+}
+
+function chrono () {
+    if (centesimas < 99) {
+        centesimas++;
+        if (centesimas < 10) { centesimas = "0"+centesimas }
+        Centesimas.innerHTML = ":"+centesimas;
+    }
+    if (centesimas == 99) {
+        centesimas = -1;
+    }
+    if (centesimas == 0) {
+        segundos ++;
+        if (segundos < 10) { segundos = "0"+segundos }
+        Segundos.innerHTML = ":"+segundos;
+    }
+    if (segundos == 59) {
+        segundos = -1;
+    }
+    if ( (centesimas == 0)&&(segundos == 0) ) {
+        minutos++;
+        if (minutos < 10) { minutos = "0"+minutos }
+        Minutos.innerHTML = ":"+minutos;
+    }
+    if (minutos == 59) {
+        minutos = -1;
+    }
+    if ( (centesimas == 0)&&(segundos == 0)&&(minutos == 0) ) {
+        horas ++;
+        if (horas < 10) { horas = "0"+horas }
+        Horas.innerHTML = horas;
+    }
+}
+
 function modal(){
 	var modal = document.getElementById('myModal');
 	modal.style.display = "block";
