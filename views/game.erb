@@ -10,12 +10,34 @@
             <h2 style="text-align:center">00:00:00</h2>
             <form class="" action="/generar" method="post">
                 <table>
+                    <% x = 0 %>
                     <% @sudokutable.each do |sudokurow| %>
                         <tr>
+                            <% y = 0 %>
                             <% sudokurow.each do |sudokuitem| %>
-                                <td class="sudoku"><input type="number" class="sudokuInput" style="max-width:inherit" value=<%= sudokuitem %>></td>
+                                <% if (x.to_i == 2 && y.to_i == 2) || (x.to_i == 2 && y.to_i == 5) || (x.to_i == 5 && y.to_i == 2) || (x.to_i == 5 && y.to_i == 5)%>
+                                    <td class="sudoku borderSide borderbottom">
+                                <% else %>
+                                    <% if x.to_i == 2 || x.to_i == 5 %>
+                                        <td class="sudoku borderSide">
+                                    <% else %>
+                                        <% if y.to_i == 2 || y.to_i == 5 %>
+                                            <td class="sudoku borderbottom">
+                                        <% else %>
+                                            <td class="sudoku">
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                                <% if sudokuitem.to_i != 0? %>
+                                    <input type="number" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly>
+                                <% else %>
+                                    <input type="number" class="sudokuInput" style="max-width:inherit">
+                                <% end %>
+                                </td>
+                                <% y = y + 1 %>
                             <% end %>
-                        </tr>  
+                        </tr>
+                        <% x = x + 1 %>  
                     <% end %>
                 </table>
                 <br>
