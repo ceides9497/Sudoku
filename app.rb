@@ -8,7 +8,7 @@ end
 post '/generar' do
   valor = params[:num].to_i
   sudo = Sudoku.new
-  resp= sudo.compare(valor)
+  resp= sudo.verify(valor)
   "<center><strong>respuesta: </strong>"+resp+"</center>"
 end
 

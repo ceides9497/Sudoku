@@ -1,14 +1,14 @@
 class Sudoku
 
-  def compare(number)
+  def verify(number)
 
     if number.is_a? String
-      return "no valid String"
+      return false
     end
     if number>0 and number<10
-      return "valid"
+      return true
     else
-      return "no valid"
+      return false
     end
   end
 

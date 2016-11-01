@@ -6,20 +6,20 @@ describe Sudoku do
   end
 
   it "Compare if is a String" do
-    result = @sudo.compare("Lol")
-    result.should == "no valid String"
+    result = @sudo.verify("Lol")
+    result.should == false
   end
 
   it "Compare if is a valid Number 1 to 9" do
-    result = @sudo.compare(5)
-    result.should =="valid"
+    result = @sudo.verify(5)
+    result.should == true
   end
 
   it "Compare if is not a valid number" do
-    result = @sudo.compare(10)
-    result.should == "no valid"
-    result = @sudo.compare(-5)
-    result.should == "no valid"
+    result = @sudo.verify(10)
+    result.should == false
+    result = @sudo.verify(-5)
+    result.should == false
   end
 
 end
