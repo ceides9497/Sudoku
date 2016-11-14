@@ -12,7 +12,7 @@ describe Sudoku do
 
   it "Compare if is a valid Number 1 to 9" do
     result = @sudo.verify(5)
-    result.should == true
+    result.should == false
   end
 
   it "Compare if is not a valid number" do
