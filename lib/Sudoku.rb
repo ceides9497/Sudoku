@@ -1,6 +1,8 @@
 class Sudoku
 
-  def verify(number)
+	attr_accessor :board
+
+  def is_number_between_1_to_9?(number)
 
     if number.is_a? String
       return false
@@ -25,9 +27,8 @@ class Sudoku
   	return sudokuTable
   end
 
-  def verify_line(number,line)
-    sudokutable=initTable()
-    sudokutable[line].each do |item|
+  def number_is_not_repeated_in_row?(number,line)
+    board[line].each do |item|
       if number==item
         return false
       end
