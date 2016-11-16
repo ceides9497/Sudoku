@@ -6,18 +6,27 @@
 <link href="<%= url("css/style.css")%>" rel="stylesheet" type="text/css">
 </head>
 <body>
-        <div style="height:60%; width:50%; margin:25%; margin-top:5px;">
-
-            <h2 style="text-align:center">
-            <span id="Horas">00</span>
-            <span id="Minutos">:00</span>
-            <span id="Segundos">:00</span>
-            <span id="Centesimas">:00</span>
-            </h2>
-
+        <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
             <form class="" action="/generar" method="post">
-                <table>
-                    <% @sudokutable.each do |sudokurow| %>
+                <table style="border:2px solid;">
+                  <%
+                    @fila= 0
+                    @col = 0
+               @sudokutable.each do |sudokurow| %>
+                      <% if (@fila == 2 or @fila == 5 )%>
+                        <tr style="border-bottom:2px solid;" >
+                          <% sudokurow.each do |sudokuitem| %>
+                              <td class="sudoku">
+                              <% if sudokuitem.to_i != 0 %>
+                                  <input type="number" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly/>
+                              <% else %>
+                                  <input name="cell" type="number" class="sudokuInput" style="max-width:inherit">
+                              <% end %>
+                              </td>
+                          <% end
+                           @fila=@fila+1 %>
+                            </tr>
+                      <% else %>
                         <tr>
                             <% sudokurow.each do |sudokuitem| %>
                                 <td class="sudoku">
@@ -29,112 +38,18 @@
                                 </td>
                             <% end %>
                         </tr>
-                    <% end %>
+                    <%
+                      @fila=@fila+1
+                      end
+                    end
+                    %>
                 </table>
                 <br>
                 <input type="button" class="menu" value="Start" onclick="startGame();">
                 <input type="button" class="menu" value="Check" onclick="isValid();">
                 <input type="button" class="menu" value="Finish" onclick="finishGame();">
             </form>
-
 		</div>
 
-        <div id="myModal" class="modal">
-            <div class="modal-content" style="width:50%; margin-left:25%; margin-right:25%">
-                <div class="modal-header">
-                <span class="close" onClick="modalClose()">×</span>
-                <h2>New record!</h2>
-                </div>
-
-                <div class="modal-body">
-                	<h1 style="text-align:center">1st Place</h1>
-                    <form action="index.html">
-                    	<input type="text" placeholder="Nickname" class="normalInput"/><br>
-                        <input type="submit" class="menu"/>
-                    </form>
-                </div>
-            </div>
-        </div>
 </body>
-<script>
-
-var centesimas = 0;
-var segundos = 0;
-var minutos = 0;
-var horas = 0;
-function startGame () {
-    control = setInterval(chrono,10);
-}
-
-function finishGame () {
-    clearInterval(control);
-    modal();
-}
-
-function chrono () {
-    if (centesimas < 99) {
-        centesimas++;
-        if (centesimas < 10) { centesimas = "0"+centesimas }
-        Centesimas.innerHTML = ":"+centesimas;
-    }
-    if (centesimas == 99) {
-        centesimas = -1;
-    }
-    if (centesimas == 0) {
-        segundos ++;
-        if (segundos < 10) { segundos = "0"+segundos }
-        Segundos.innerHTML = ":"+segundos;
-    }
-    if (segundos == 59) {
-        segundos = -1;
-    }
-    if ( (centesimas == 0)&&(segundos == 0) ) {
-        minutos++;
-        if (minutos < 10) { minutos = "0"+minutos }
-        Minutos.innerHTML = ":"+minutos;
-    }
-    if (minutos == 59) {
-        minutos = -1;
-    }
-    if ( (centesimas == 0)&&(segundos == 0)&&(minutos == 0) ) {
-        horas ++;
-        if (horas < 10) { horas = "0"+horas }
-        Horas.innerHTML = horas;
-    }
-}
-
-function modal(){
-	var modal = document.getElementById('myModal');
-	modal.style.display = "block";
-}
-
-function modalClose(){
-	var modal = document.getElementById('myModal');
-	modal.style.display = "none";
-}
-
-function verify(val){
-  if (val == NaN) {
-    return false;
-  }
-  if (val < 10 && val > 0) {
-    return true;
-  }
-  return false;
-}
-
-function isValid(){
-  var cells = document.getElementsByName('cell');
-  for (var i = 0; i < cells.length; i++) {
-    if (!verify(parseInt(cells[i].value))) {
-      cells[i].classList.add('sudokuInvalid');
-    }
-    else {
-      cells[i].classList.remove('sudokuInvalid');
-    }
-
-  }
-}
-
-</script>
 </html>

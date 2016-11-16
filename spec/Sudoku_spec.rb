@@ -22,4 +22,13 @@ describe Sudoku do
     result.should == false
   end
 
+  it "Compare numbers in the line" do
+    result = @sudo.verify_line(9,0)
+    result.should == true
+    result = @sudo.verify_line(9,1)
+    result.should == false
+    result = @sudo.verify_line(2,0)
+    result.should == true
+  end
+
 end
