@@ -49,13 +49,18 @@ describe Sudoku do
     @sudo.number_is_not_repeated_in_row?(9,1).should == false
     @sudo.number_is_not_repeated_in_row?(2,0).should == true
 
-
-
 #    result.should == true
 #    result = @sudo.verify_line(9,1)
 #    result.should == false
 #    result = @sudo.verify_line(2,0)
 #    result.should == true
+  end
+
+  it "Compare numbers in the column" do
+    @sudo.board = @board
+    @sudo.number_is_not_repeated_in_column?(9,0).should == true
+    @sudo.number_is_not_repeated_in_column?(6,1).should == false
+    @sudo.number_is_not_repeated_in_column?(4,0).should == false
   end
 
 end

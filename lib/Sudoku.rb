@@ -27,13 +27,24 @@ class Sudoku
   	return sudokuTable
   end
 
-  def number_is_not_repeated_in_row?(number,line)
-    board[line].each do |item|
+  def number_is_not_repeated_in_row?(number,row)
+    board[row].each do |item|
       if number==item
         return false
       end
     end
     return true
   end
+
+  def number_is_not_repeated_in_column?(number,col)
+    column = board.map {|row| row[2]}
+    column.each do |item|
+      if number==item
+        return false
+      end
+    end
+    return true
+  end
+
 
 end
