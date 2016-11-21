@@ -14,9 +14,9 @@
                             <% sudokurow.each do |sudokuitem| %>
                                 <td class="sudoku">
                                 <% if sudokuitem.to_i != 0 %>
-                                    <input type="number" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly/>
+                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly/>
                                 <% else %>
-                                    <input type="number" name="cell" class="sudokuInput" style="max-width:inherit">
+                                    <input type="number" name="cell[]" class="sudokuInput" style="max-width:inherit" value="">
                                 <% end %>
                                 </td>
                             <% end %>

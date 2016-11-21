@@ -8,12 +8,19 @@ end
 post '/gettable' do
 	sudoku = Sudoku.new
 	@sudokutable = sudoku.initTable()
+  sudoku.board = sudoku.initTable()
 	erb :game
 end
 
 post '/generar' do
-  valor = params[:cell].to_i
+  valores = params[:cell]
   sudo = Sudoku.new
-  resp= sudo.is_number_between_1_to_9?(valor)
-  "<center><strong>respuesta: </strong>"+resp+"</center>"
+  resps = sudo.return_resps_to_vals(valores)
+
+if resps[2]
+  "<center><strong>respuesta: </strong>1</center>"
+else
+  "<center><strong>respuesta: </strong>0</center>"
+end
+
 end
