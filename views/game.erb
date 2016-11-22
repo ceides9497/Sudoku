@@ -14,9 +14,9 @@
                             <% for y in 0..8 %>
                                 <td class="sudoku">
                                 <% if @sudokutable[x][y].to_i != 0 %>
-                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly/>
+                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly>
                                 <% else %>
-                                    <input type="number" name="cell[]" class="sudokuInput" style="max-width:inherit" value="">
+                                    <input type="number" name="cell[]" <% if @booleantable[x][y] %> class="sudokuInput" <% else %> class="sudokuInvalid" <%end%> style="max-width:inherit" <% if @currenttable[x][y].to_i != 0 %> value=<%= @currenttable[x][y] %> <% end %>>
                                 <% end %>
                                 </td>
                             <% end %>

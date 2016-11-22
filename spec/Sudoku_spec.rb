@@ -4,11 +4,11 @@ describe Sudoku do
   before(@each) do
     @sudo= Sudoku.new
     @board=  [[1, 0, 0, 0, 0, 0, 0, 0, 0],
-              [0, 0, 4, 0, 0, 1, 0, 9, 0],
+              [0, 0, 4, 0, 0, 1, 9, 9, 0],
               [0, 6, 0, 0, 8, 0, 0, 0, 0],
-              [0, 0, 3, 0, 7, 0, 8, 0, 0],
+              [4, 0, 3, 0, 7, 0, 8, 0, 0],
               [0, 0, 0, 0, 0, 5, 1, 0, 0],
-              [7, 0, 0, 1, 0, 0, 0, 0, 0],
+              [7, 6, 0, 1, 0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0, 3, 0, 0, 8],
               [0, 0, 5, 0, 0, 4, 9, 7, 0],
               [4, 0, 6, 8, 5, 0, 0, 1, 0]]
@@ -45,9 +45,9 @@ describe Sudoku do
     @sudo.board = @board
 
     #result = @sudo.verify_line(9,0)
-    @sudo.number_is_not_repeated_in_row?(9,0).should == true
-    @sudo.number_is_not_repeated_in_row?(9,1).should == false
-    @sudo.number_is_not_repeated_in_row?(2,0).should == true
+    @sudo.number_is_not_repeated_in_row?(9,0, @board).should == true
+    @sudo.number_is_not_repeated_in_row?(9,1, @board).should == false
+    @sudo.number_is_not_repeated_in_row?(2,0, @board).should == true
 
 #    result.should == true
 #    result = @sudo.verify_line(9,1)
@@ -58,9 +58,9 @@ describe Sudoku do
 
   it "Compare numbers in the column" do
     @sudo.board = @board
-    @sudo.number_is_not_repeated_in_column?(9,0).should == true
-    @sudo.number_is_not_repeated_in_column?(6,1).should == false
-    @sudo.number_is_not_repeated_in_column?(4,0).should == false
+    @sudo.number_is_not_repeated_in_column?(9,0, @board).should == true
+    @sudo.number_is_not_repeated_in_column?(6,1, @board).should == false
+    @sudo.number_is_not_repeated_in_column?(4,0, @board).should == false
   end
 
 end

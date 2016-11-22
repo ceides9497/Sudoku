@@ -35,21 +35,33 @@ class Sudoku
   	return sudokuTable
   end
 
-  def number_is_not_repeated_in_row?(number,row)
-    board[row].each do |item|
-      if number==item
-        return false
+  def initBooleansTable()
+    table = Array.new(9, true) { Array.new(9, true) }
+    return table
+  end
+
+  def number_is_not_repeated_in_row?(number,row, values)
+    cont = 0
+    for num in 0..8
+      if values[row][num] == number
+        cont = cont + 1
       end
+    end
+    if cont > 1
+      return false
     end
     return true
   end
 
-  def number_is_not_repeated_in_column?(number,col)
-    column = board.map {|row| row[2]}
-    column.each do |item|
-      if number==item
-        return false
+  def number_is_not_repeated_in_column?(number,col, values)
+    cont = 0
+    for num in 0..8
+      if values[num][col] == number
+        cont = cont + 1
       end
+    end
+    if cont > 1
+      return false
     end
     return true
   end
@@ -64,5 +76,29 @@ class Sudoku
       end
     end
     return resp
+  end
+
+  def check_table(valores)
+    aux = array_from_1d_to_2d(valores)
+    resp = Array.new(9, true) { Array.new(9, true) }
+    for x in 0..8
+      for y in 0..8
+        resp[x][y] = is_number_factible?(aux[x][y], x, y, aux)
+      end
+    end
+    return resp
+  end
+
+  def is_number_factible?(number, row, column, values)
+    if not is_number_between_1_to_9?(number)
+      return false
+    end
+    if not number_is_not_repeated_in_row?(number, row, values)
+      return false
+    end
+    if not number_is_not_repeated_in_column?(number, column, values)
+      return false
+    end
+    return true
   end
 end
