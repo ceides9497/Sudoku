@@ -9,45 +9,23 @@
         <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
             <form class="" action="/generar" method="post">
                 <table style="border:2px solid;">
-                  <%
-                    @fila= 0
-                    @col = 0
-               @sudokutable.each do |sudokurow| %>
-                      <% if (@fila == 2 or @fila == 5 )%>
-                        <tr style="border-bottom:2px solid;" >
-                          <% sudokurow.each do |sudokuitem| %>
-                              <td class="sudoku">
-                              <% if sudokuitem.to_i != 0 %>
-                                  <input type="number" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly/>
-                              <% else %>
-                                  <input name="cell" type="number" class="sudokuInput" style="max-width:inherit">
-                              <% end %>
-                              </td>
-                          <% end
-                           @fila=@fila+1 %>
-                            </tr>
-                      <% else %>
+                  <% @sudokutable.each do |sudokurow| %>
                         <tr>
                             <% sudokurow.each do |sudokuitem| %>
                                 <td class="sudoku">
                                 <% if sudokuitem.to_i != 0 %>
-                                    <input type="number" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly/>
+                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly/>
                                 <% else %>
-                                    <input name="cell" type="number" class="sudokuInput" style="max-width:inherit">
+                                    <input type="number" name="cell[]" class="sudokuInput" style="max-width:inherit" value="">
                                 <% end %>
                                 </td>
                             <% end %>
                         </tr>
-                    <%
-                      @fila=@fila+1
-                      end
-                    end
-                    %>
+                    <%end%>
                 </table>
                 <br>
-                <input type="button" class="menu" value="Start" onclick="startGame();">
-                <input type="button" class="menu" value="Check" onclick="isValid();">
-                <input type="button" class="menu" value="Finish" onclick="finishGame();">
+                <input type="submit" class="menu" value="Check">
+                <input type="button" class="menu" value="Finish">
             </form>
 		</div>
 

@@ -2,6 +2,14 @@ class Sudoku
 
 	attr_accessor :board
 
+	def return_resps_to_vals(valores)
+		resp = []
+		for num in 0..80
+			resp[num]=is_number_between_1_to_9?(valores[num].to_i)
+		end
+		return resp
+	end
+
   def is_number_between_1_to_9?(number)
 
     if number.is_a? String
