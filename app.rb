@@ -15,12 +15,6 @@ end
 post '/generar' do
   valores = params[:cell]
   sudo = Sudoku.new
-  resps = sudo.return_resps_to_vals(valores)
-
-if resps[2]
-  "<center><strong>respuesta: </strong>1</center>"
-else
-  "<center><strong>respuesta: </strong>0</center>"
-end
-
+  @resps = sudo.array_from_1d_to_2d(valores)  
+  erb :pruebas 
 end

@@ -54,5 +54,15 @@ class Sudoku
     return true
   end
 
-
+  def array_from_1d_to_2d(valores)
+    resp = Array.new(9) { Array.new(9) }
+    cont = 0    
+    for num in 0..8
+      for num2 in 0..8
+        resp[num][num2] = valores[cont].to_i    
+        cont = cont +1
+      end
+    end
+    return resp
+  end
 end
