@@ -9,12 +9,12 @@
         <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
             <form class="" action="/generar" method="post">
                 <table style="border:2px solid;">
-                  <% @sudokutable.each do |sudokurow| %>
+                  <% for x in 0..8 %>
                         <tr>
-                            <% sudokurow.each do |sudokuitem| %>
+                            <% for y in 0..8 %>
                                 <td class="sudoku">
-                                <% if sudokuitem.to_i != 0 %>
-                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= sudokuitem %> readonly/>
+                                <% if @sudokutable[x][y].to_i != 0 %>
+                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly/>
                                 <% else %>
                                     <input type="number" name="cell[]" class="sudokuInput" style="max-width:inherit" value="">
                                 <% end %>
