@@ -10,7 +10,7 @@ describe Sudoku do
               [0, 0, 0, 0, 0, 5, 1, 0, 0],
               [7, 6, 0, 1, 0, 0, 0, 0, 0],
               [0, 0, 0, 0, 0, 3, 0, 0, 8],
-              [0, 0, 5, 0, 0, 4, 9, 7, 0],
+              [0, 1, 5, 0, 0, 4, 9, 7, 0],
               [4, 0, 6, 8, 5, 0, 0, 1, 0]]
   end
 
@@ -61,6 +61,14 @@ describe Sudoku do
     @sudo.number_is_not_repeated_in_column?(9,0, @board).should == true
     @sudo.number_is_not_repeated_in_column?(6,1, @board).should == false
     @sudo.number_is_not_repeated_in_column?(4,0, @board).should == false
+  end
+
+  it "should return true if number is factible" do
+    @sudo.is_number_factible?(1, 7, 1, @board).should == true
+  end
+
+  it "should return false if number is NOT factible" do
+    @sudo.is_number_factible?(4, 3, 0, @board).should == false
   end
 
 end
