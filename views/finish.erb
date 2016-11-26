@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sudoku</title>
+<meta charset="UTF-8">
+<link href="<%= url("css/style.css")%>" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+        <h1 style="text-align:center; color: #0066CC;"> Congratulations!!!!! You won!!!!!</h1>
+
+        <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
+            <form class="" action="/" method="get">
+                <table style="border:5px solid grey;">
+                  <% for x in 0..8 %>
+                        <tr>
+                            <% for y in 0..8 %>
+                                <td class="sudoku" <% if (y==2 or y==5) and (x==2 or x==5) %> style="border-right:solid grey; border-bottom:solid grey;" <%end%><% if y==2 or y==5 %> style="border-right:solid grey;" <%end%> <% if x==2 or x==5 %> style="border-bottom:solid grey;" <%end%> >
+                                <% if @sudokutable[x][y].to_i != 0 %>
+                                    <input type="number" class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly>
+                                <% else %>
+                                    <input type="number"  class="sudokuHint" style="max-width:inherit; color:white; background-color:rgba(0,102,204,0.8);" value=<%= @currenttable[x][y] %> readonly>
+                                <% end %>
+                                </td>
+                            <% end %>
+                        </tr>
+                    <%end%>
+                </table>
+                <br>
+                <input type="submit" class="menu" value="Continue">
+            </form>
+		</div>
+
+</body>
+</html>

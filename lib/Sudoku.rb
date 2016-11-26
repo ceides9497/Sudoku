@@ -23,7 +23,7 @@ class Sudoku
 									 	 [6, 7, 3, 1, 9, 8, 4, 5, 2],
 										 [2, 8, 1, 5, 7, 4, 9, 6, 3],
 										 [5, 9, 4, 2, 3, 6, 7, 1, 8]]
-		return solutionTable		
+		return solutionTable
 	end
 
 	def return_resps_to_vals(valores)
@@ -255,4 +255,15 @@ class Sudoku
     end
     return true
   end
+
+	def is_table_correct_completed?(values, solution)
+		for numfil in 0..8
+			for numcol in 0..8
+				if values[numfil][numcol] != solution[numfil][numcol]
+					return false
+				end
+			end
+		end
+		return true
+	end
 end
