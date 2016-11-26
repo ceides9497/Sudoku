@@ -6,6 +6,11 @@
 <link href="<%= url("css/style.css")%>" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+      <% if not @solved %>
+        <h1 style="text-align:center;">Oh No!!! you have <span style="color: rgb(200, 0, 45);">incorrect</span> values</h1>
+      <% end %>
+
         <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
             <form class="" action="/generar" method="post">
                 <table style="border:5px solid grey;">
@@ -24,8 +29,8 @@
                     <%end%>
                 </table>
                 <br>
-                <input type="submit" class="menu" value="Check">
-                <input type="button" class="menu" value="Finish">
+                <input type="submit" class="menu" value="Check" name="pressed">
+                <input type="submit" class="menu" value="Finish" name="pressed">
             </form>
 		</div>
 
