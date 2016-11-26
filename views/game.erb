@@ -11,6 +11,10 @@
         <h1 style="text-align:center;">Oh No!!! you have <span style="color: rgb(200, 0, 45);">incorrect</span> values</h1>
       <% end %>
 
+      <% if @finishPlease %>
+        <h1 style="text-align:center;">Please... finish game correctly, you have some <span style="color: rgb(200, 0, 45);">errors</span></h1>
+      <% end %>
+
         <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
             <form action="/generar" method="post">
                 <table style="border:5px solid grey;">
