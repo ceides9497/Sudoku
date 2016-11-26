@@ -21,6 +21,7 @@ end
 
 post '/gettable' do
 	sudoku = Sudoku.new
+  @solved=true
 	@sudokutable = sudoku.initTable()
   @booleantable = sudoku.initBooleansTable()
   @currenttable = sudoku.initTable()
@@ -28,13 +29,22 @@ post '/gettable' do
 end
 
 post '/generar' do
-  valores = params[:cell]
   sudo = Sudoku.new
+  valores = params[:cell]
   @sudokutable = sudo.initTable()
   @currenttable = sudo.array_from_1d_to_2d(valores)
   @booleantable = sudo.check_table(valores)
   @solutionTable=sudo.getSolutionTable()
-#  @solved = sudo.is_table_correct_completed?(@currenttable,@solutionTable)
   @solved = for_message(@currenttable)
-  erb :game
+  if params[:pressed] == "Check"
+    erb :game
+  elsif params[:pressed] == "Finish"
+    if sudo.is_table_correct_completed?(@currenttable,@solutionTable)
+      erb :finish
+    else
+      @solved = true
+      @finishPlease=true
+      erb :game
+    end
+  end
 end
