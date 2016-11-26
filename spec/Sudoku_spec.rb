@@ -12,6 +12,16 @@ describe Sudoku do
               [0, 0, 0, 0, 0, 3, 0, 0, 8],
               [0, 1, 5, 0, 0, 4, 9, 7, 0],
               [4, 6, 6, 8, 5, 0, 0, 1, 0]]
+
+    @correctBoard= [[9, 1, 2, 3, 4, 5, 6, 8, 7],
+									  [8, 4, 7, 6, 1, 9, 3, 2, 5],
+									  [3, 6, 5, 8, 2, 7, 1, 9, 4],
+									  [1, 3, 6, 4, 5, 2, 8, 7, 9],
+									  [4, 5, 9, 7, 8, 1, 2, 3, 6],
+									  [7, 2, 8, 9, 6, 3, 5, 4, 1],
+								 	  [6, 7, 3, 1, 9, 8, 4, 5, 2],
+									  [2, 8, 1, 5, 7, 4, 9, 6, 3],
+									  [5, 9, 4, 2, 3, 6, 7, 1, 8]]
   end
 
   it "Compare if is a String" do
@@ -88,6 +98,14 @@ describe Sudoku do
 
   it "should return false if number is NOT factible" do
     @sudo.is_number_factible?(4, 3, 0, @board).should == false
+  end
+
+  it "should return false if complete table is not correct" do
+    @sudo.is_table_correct_completed?(@board,@correctBoard).should == false
+  end
+
+  it "should return true if complete table is correct" do
+    @sudo.is_table_correct_completed?(@correctBoard,@correctBoard).should == true
   end
 
 end
