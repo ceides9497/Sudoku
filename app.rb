@@ -8,7 +8,6 @@ end
 post '/gettable' do
 	sudoku = Sudoku.new
 	@sudokutable = sudoku.initTable()
-  sudoku.board = sudoku.initTable()
   @booleantable = sudoku.initBooleansTable()
   @currenttable = sudoku.initTable()
 	erb :game
