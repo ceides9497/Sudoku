@@ -38,3 +38,10 @@ post '/generar' do
   @solved = for_message(@currenttable)
   erb :game
 end
+
+get '/yield' do
+  sudoku = Sudoku.new
+  @sudokutable = sudoku.initTable()  
+  @solvedtable = sudoku.getSolutionTable()
+  erb :yield
+end
