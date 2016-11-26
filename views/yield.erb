@@ -5,36 +5,30 @@
 <meta charset="UTF-8">
 <link href="<%= url("css/style.css")%>" rel="stylesheet" type="text/css">
 </head>
-<body>
-
-      <% if not @solved %>
-        <h1 style="text-align:center;">Oh No!!! you have <span style="color: rgb(200, 0, 45);">incorrect</span> values</h1>
-      <% end %>
-
+<body> 
+        <h1 style="text-align:center;">Better luck next time.</h1>
         <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
-            <form action="/generar" method="post">
+            <form>
                 <table style="border:5px solid grey;">
                   <% for x in 0..8 %>
                         <tr>
                             <% for y in 0..8 %>
                                 <td class="sudoku" <% if (y==2 or y==5) and (x==2 or x==5) %> style="border-right:solid grey; border-bottom:solid grey;" <%end%><% if y==2 or y==5 %> style="border-right:solid grey;" <%end%> <% if x==2 or x==5 %> style="border-bottom:solid grey;" <%end%> >
                                 <% if @sudokutable[x][y].to_i != 0 %>
-                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly>
+                                    <input type="number"class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly>
                                 <% else %>
-                                    <input type="number" name="cell[]" <% if @booleantable[x][y] or @currenttable[x][y]==0%> class="sudokuInput" <% else %> class="sudokuInvalid" <%end%> style="max-width:inherit" <% if @currenttable[x][y].to_i != 0 %> value=<%= @currenttable[x][y] %> <% end %>>
+                                    <input type="number" class="sudokuInput" style="max-width:inherit"  value=<%= @solvedtable[x][y] %> readonly>
                                 <% end %>
                                 </td>
                             <% end %>
                         </tr>
                     <%end%>
                 </table>
-                <br>
-                <input type="submit" class="menu" value="Check" name="pressed">
+                <br>              
             </form>
-            <form action="/yield" method="get">
-                <input type="submit" class="menu" value="Yield" name="pressed">
-            </form>
-            <input type="submit" class="menu" value="Finish" name="pressed">
+            <form action="/" method="get">
+                    <input type="submit" class="menu" value="New Game" name="pressed">
+                </form>
 		</div>
 </body>
 </html>
