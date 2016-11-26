@@ -1,7 +1,5 @@
 class Sudoku
 
-	attr_accessor :board
-
 	def return_resps_to_vals(valores)
 		resp = []
 		for num in 0..80
