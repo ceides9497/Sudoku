@@ -20,9 +20,13 @@ get '/' do
 end
 
 post '/gettable' do
+  dificultad=params[:opcion]
+
+
 	sudoku = Sudoku.new
   @solved=true
-	@sudokutable = sudoku.initTable()
+
+	@sudokutable = sudoku.CambiarLaDificultad(dificultad)
   @booleantable = sudoku.initBooleansTable()
   @currenttable = sudoku.initTable()
 	erb :game
@@ -31,7 +35,7 @@ end
 post '/generar' do
   sudo = Sudoku.new
   valores = params[:cell]
-  @sudokutable = sudo.initTable()
+@sudokutable = sudo.initTable()
   @currenttable = sudo.array_from_1d_to_2d(valores)
   @booleantable = sudo.check_table(valores)
   @solutionTable=sudo.getSolutionTable()
@@ -51,7 +55,7 @@ end
 
 get '/yield' do
   sudoku = Sudoku.new
-  @sudokutable = sudoku.initTable()  
+  @sudokutable = sudoku.initTable()
   @solvedtable = sudoku.getSolutionTable()
   erb :yield
 end

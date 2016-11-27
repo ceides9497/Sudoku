@@ -22,7 +22,25 @@ describe Sudoku do
 								 	  [6, 7, 3, 1, 9, 8, 4, 5, 2],
 									  [2, 8, 1, 5, 7, 4, 9, 6, 3],
 									  [5, 9, 4, 2, 3, 6, 7, 1, 8]]
+
+    @tableEasy= [[9, 0, 0, 0, 4, 0, 6, 0, 7],
+    									 [0, 0, 0, 6, 0, 0, 0, 2, 5],
+    									 [3, 0, 5, 0, 0, 7, 0, 0, 4],
+    									 [0, 0, 6, 0, 5, 0, 0, 0, 0],
+    									 [4, 0, 0, 7, 8, 0, 2, 0, 0],
+    									 [7, 2, 0, 0, 6, 0, 0, 0, 0],
+    									 [0, 0, 3, 0, 0, 0, 0, 5, 0],
+    									 [2, 8, 1, 0, 0, 0, 0, 6, 0],
+    									 [0, 9, 0, 0, 0, 0, 7, 1, 8]]
   end
+
+
+  it "Change board to easy difficulty" do
+    @sudo.initTable()
+     @sudo.CambiarLaDificultad("Easy").should==@tableEasy
+
+  end
+
 
   it "Compare if is a String" do
     @sudo.is_number_between_1_to_9?("Lol").should==false

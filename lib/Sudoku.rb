@@ -13,6 +13,44 @@ class Sudoku
   	return sudokuTable
   end
 
+	def initTableEasy()
+sudokuTableEasy = [[9, 0, 0, 0, 4, 0, 6, 0, 7],
+									 [0, 0, 0, 6, 0, 0, 0, 2, 5],
+									 [3, 0, 5, 0, 0, 7, 0, 0, 4],
+									 [0, 0, 6, 0, 5, 0, 0, 0, 0],
+									 [4, 0, 0, 7, 8, 0, 2, 0, 0],
+									 [7, 2, 0, 0, 6, 0, 0, 0, 0],
+									 [0, 0, 3, 0, 0, 0, 0, 5, 0],
+									 [2, 8, 1, 0, 0, 0, 0, 6, 0],
+									 [0, 9, 0, 0, 0, 0, 7, 1, 8]]
+		return sudokuTableEasy
+	end
+	def initTableHard()
+sudokuTableHard = [[0, 0, 0, 0, 4, 0, 6, 0, 0],
+ 									 [0, 0, 0, 6, 0, 0, 0, 0, 5],
+ 									 [0, 0, 5, 0, 0, 7, 0, 0, 0],
+ 									 [0, 0, 6, 0, 0, 0, 0, 0, 0],
+ 									 [0, 0, 0, 0, 8, 0, 0, 0, 0],
+ 									 [7, 2, 0, 0, 0, 0, 0, 0, 0],
+ 									 [0, 0, 3, 0, 0, 0, 0, 5, 0],
+ 									 [0, 8, 0, 0, 0, 0, 0, 0, 0],
+ 									 [0, 9, 0, 0, 0, 0, 7, 0, 8]]
+				return sudokuTableHard
+	end
+
+def CambiarLaDificultad(dificultad)
+   if dificultad=="Easy"
+    	return initTableEasy()
+   end
+	 if dificultad=="Normal"
+    	return initTable()
+   end
+	 if dificultad=="Hard"
+    	return initTableHard()
+   end
+end
+
+
 	def getSolutionTable()
 		solutionTable = [[9, 1, 2, 3, 4, 5, 6, 8, 7],
 										 [8, 4, 7, 6, 1, 9, 3, 2, 5],
@@ -25,6 +63,8 @@ class Sudoku
 										 [5, 9, 4, 2, 3, 6, 7, 1, 8]]
 		return solutionTable
 	end
+
+
 
 	def return_resps_to_vals(valores)
 		resp = []
