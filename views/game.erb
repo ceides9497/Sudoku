@@ -16,16 +16,16 @@
       <% end %>
 
         <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
-            <form action="/generar" method="post">
+            <form action="/verify" method="post">
                 <table style="border:5px solid grey;">
-                  <% for x in 0..8 %>
+                  <% for row in 0..8 %>
                         <tr>
-                            <% for y in 0..8 %>
-                                <td class="sudoku" <% if (y==2 or y==5) and (x==2 or x==5) %> style="border-right:solid grey; border-bottom:solid grey;" <%end%><% if y==2 or y==5 %> style="border-right:solid grey;" <%end%> <% if x==2 or x==5 %> style="border-bottom:solid grey;" <%end%> >
-                                <% if @sudokutable[x][y].to_i != 0 %>
-                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly>
+                            <% for column in 0..8 %>
+                                <td class="sudoku" <% if (column==2 or column==5) and (row==2 or row==5) %> style="border-right:solid grey; border-bottom:solid grey;" <%end%><% if column==2 or column==5 %> style="border-right:solid grey;" <%end%> <% if row==2 or row==5 %> style="border-bottom:solid grey;" <%end%> >
+                                <% if @sudokutable[row][column].to_i != 0 %>
+                                    <input type="number" name="cell[]" class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[row][column] %> readonly>
                                 <% else %>
-                                    <input type="number" name="cell[]" <% if @booleantable[x][y] or @currenttable[x][y]==0%> class="sudokuInput" <% else %> class="sudokuInvalid" <%end%> style="max-width:inherit" <% if @currenttable[x][y].to_i != 0 %> value=<%= @currenttable[x][y] %> <% end %>>
+                                    <input type="number" name="cell[]" <% if @booleantable[row][column] or @currenttable[row][column]==0%> class="sudokuInput" <% else %> class="sudokuInvalid" <%end%> style="max-width:inherit" <% if @currenttable[row][column].to_i != 0 %> value=<%= @currenttable[row][column] %> <% end %>>
                                 <% end %>
                                 </td>
                             <% end %>
@@ -50,7 +50,7 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                <span class="close" onClick="modalClose()">X</span>
+                <span class="close" onClick="modalClose()">row</span>
                 <h2>Rules</h2>
                 </div>
                 <div class="modal-body">

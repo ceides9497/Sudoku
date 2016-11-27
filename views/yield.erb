@@ -10,14 +10,14 @@
         <div style="height:60%; width:50%; margin:25%; margin-top:3%;">
             <form>
                 <table style="border:5px solid grey;">
-                  <% for x in 0..8 %>
+                  <% for row in 0..8 %>
                         <tr>
-                            <% for y in 0..8 %>
-                                <td class="sudoku" <% if (y==2 or y==5) and (x==2 or x==5) %> style="border-right:solid grey; border-bottom:solid grey;" <%end%><% if y==2 or y==5 %> style="border-right:solid grey;" <%end%> <% if x==2 or x==5 %> style="border-bottom:solid grey;" <%end%> >
-                                <% if @sudokutable[x][y].to_i != 0 %>
-                                    <input type="number"class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[x][y] %> readonly>
+                            <% for column in 0..8 %>
+                                <td class="sudoku" <% if (column==2 or column==5) and (row==2 or row==5) %> style="border-right:solid grey; border-bottom:solid grey;" <%end%><% if column==2 or column==5 %> style="border-right:solid grey;" <%end%> <% if row==2 or row==5 %> style="border-bottom:solid grey;" <%end%> >
+                                <% if @sudokutable[row][column].to_i != 0 %>
+                                    <input type="number"class="sudokuHint" style="max-width:inherit" value=<%= @sudokutable[row][column] %> readonly>
                                 <% else %>
-                                    <input type="number" class="sudokuInput" style="max-width:inherit"  value=<%= @solvedtable[x][y] %> readonly>
+                                    <input type="number" class="sudokuInput" style="max-width:inherit"  value=<%= @solvedtable[row][column] %> readonly>
                                 <% end %>
                                 </td>
                             <% end %>

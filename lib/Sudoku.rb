@@ -78,20 +78,20 @@ class Sudoku
 		return solutionTable
 	end
 
-	def return_resps_to_vals(valores)
+	def return_resps_to_vals(values)
 		resp = []
 		for num in 0..80
-			resp[num]=is_number_between_1_to_9?(valores[num].to_i)
+			resp[num]=is_number_between_1_to_9?(values[num].to_i)
 		end
 		return resp
 	end
 
-  def is_number_between_1_to_9?(number)
+  def is_number_between_1_to_9?(digit)
 
-    if number.is_a? String
+    if digit.is_a? String
       return false
     end
-    if number>0 and number<10
+    if digit>0 and digit<10
       return true
     else
       return false
@@ -103,10 +103,10 @@ class Sudoku
     return table
   end
 
-  def number_is_not_repeated_in_row?(number,row, values)
+  def number_is_not_repeated_in_row?(digit,row, values)
     cont = 0
     for num in 0..8
-      if values[row][num] == number
+      if values[row][num] == digit
         cont = cont + 1
       end
     end
@@ -116,10 +116,10 @@ class Sudoku
     return true
   end
 
-  def number_is_not_repeated_in_column?(number,col, values)
+  def number_is_not_repeated_in_column?(digit,col, values)
     cont = 0
     for num in 0..8
-      if values[num][col] == number
+      if values[num][col] == digit
         cont = cont + 1
       end
     end
@@ -129,13 +129,13 @@ class Sudoku
     return true
   end
 
-	def number_is_not_repeated_in_box?(number,fil,col, values)
+	def number_is_not_repeated_in_box?(digit,row,col, values)
     cont = 0
 		#for region A
-		if (0..2) === fil and (0..2) === col
+		if (0..2) === row and (0..2) === col
 				for numfil in 0..2
 					for numcol in 0..2
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -147,10 +147,10 @@ class Sudoku
 		end
 
 		#for region B
-		if (0..2) === fil and (3..5) === col
+		if (0..2) === row and (3..5) === col
 				for numfil in 0..2
 					for numcol in 3..5
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -162,10 +162,10 @@ class Sudoku
 		end
 
 		#for region C
-		if (0..2) === fil and (6..8) === col
+		if (0..2) === row and (6..8) === col
 				for numfil in 0..2
 					for numcol in 6..8
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -177,10 +177,10 @@ class Sudoku
 		end
 
 		#for region D
-		if (3..5) === fil and (0..2) === col
+		if (3..5) === row and (0..2) === col
 				for numfil in 3..5
 					for numcol in 0..2
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -192,10 +192,10 @@ class Sudoku
 		end
 
 		#for region E
-		if (3..5) === fil and (3..5) === col
+		if (3..5) === row and (3..5) === col
 				for numfil in 3..5
 					for numcol in 3..5
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -207,10 +207,10 @@ class Sudoku
 		end
 
 		#for region F
-		if (3..5) === fil and (6..8) === col
+		if (3..5) === row and (6..8) === col
 				for numfil in 3..5
 					for numcol in 6..8
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -222,10 +222,10 @@ class Sudoku
 		end
 
 		#for region G
-		if (6..8) === fil and (0..2) === col
+		if (6..8) === row and (0..2) === col
 				for numfil in 6..8
 					for numcol in 0..2
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -237,10 +237,10 @@ class Sudoku
 		end
 
 		#for region H
-		if (6..8) === fil and (3..5) === col
+		if (6..8) === row and (3..5) === col
 				for numfil in 6..8
 					for numcol in 3..5
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -252,10 +252,10 @@ class Sudoku
 		end
 
 		#for region I
-		if (6..8) === fil and (6..8) === col
+		if (6..8) === row and (6..8) === col
 				for numfil in 6..8
 					for numcol in 6..8
-						if values[numfil][numcol] == number
+						if values[numfil][numcol] == digit
 							cont = cont +1
 						end
 					end
@@ -269,46 +269,46 @@ class Sudoku
 
   end
 
-  def array_from_1d_to_2d(valores)
+  def array_from_1d_to_2d(values)
     resp = Array.new(9) { Array.new(9) }
     cont = 0
     for num in 0..8
       for num2 in 0..8
-        resp[num][num2] = valores[cont].to_i
+        resp[num][num2] = values[cont].to_i
         cont = cont +1
       end
     end
     return resp
   end
 
-  def check_table(valores)
-    aux = array_from_1d_to_2d(valores)
+  def check_table(values)
+    aux = array_from_1d_to_2d(values)
     resp = Array.new(9, true) { Array.new(9, true) }
-    for x in 0..8
-      for y in 0..8
-        resp[x][y] = is_number_factible?(aux[x][y], x, y, aux)
+    for row in 0..8
+      for column in 0..8
+        resp[row][column] = is_number_factible?(aux[row][column], row, column, aux)
       end
     end
     return resp
   end
 
-  def is_number_factible?(number, row, column, values)
-    if not is_number_between_1_to_9?(number)
+  def is_number_factible?(digit, row, column, values)
+    if not is_number_between_1_to_9?(digit)
       return false
     end
-		if not number_is_not_repeated_in_box?(number,row,column,values)
+		if not number_is_not_repeated_in_box?(digit,row,column,values)
 			return false
 		end
-    if not number_is_not_repeated_in_row?(number, row, values)
+    if not number_is_not_repeated_in_row?(digit, row, values)
       return false
     end
-    if not number_is_not_repeated_in_column?(number, column, values)
+    if not number_is_not_repeated_in_column?(digit, column, values)
       return false
     end
     return true
   end
 
-	def is_table_correct_completed?(values, solution)
+	def is_table_completed?(values, solution)
 		for numfil in 0..8
 			for numcol in 0..8
 				if values[numfil][numcol] != solution[numfil][numcol]

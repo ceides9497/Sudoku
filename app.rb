@@ -46,7 +46,7 @@ post '/gettable' do
 	erb :game
 end
 
-post '/generar' do
+post '/verify' do
   sudo = Sudoku.new
   valores = params[:cell]
   @sudokutable = $gametable
@@ -57,7 +57,7 @@ post '/generar' do
   if params[:pressed] == "Check"
     erb :game
   elsif params[:pressed] == "Finish"
-    if sudo.is_table_correct_completed?(@currenttable,@solutionTable)
+    if sudo.is_table_completed?(@currenttable,@solutionTable)
       erb :finish
     else
       @solved = true
