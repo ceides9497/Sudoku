@@ -5,19 +5,40 @@
 <meta charset="UTF-8">
 <link href="<%= url("css/style.css")%>" rel="stylesheet" type="text/css">
 </head>
-    
+
 <body>
 	<h1 style="text-align:center; margin-top:15%">SUDOKU</h1>
     <div style="margin:25%; margin-top:5%">
         <button id="play" class="mainmenu" onClick="accordion()">Play</button>
         <div class="panel">
             <form action="/gettable" method="post">
-                <input class="menu"  type="submit" value="Easy"></input>
-                <input class="menu"  type="submit" value="Normal"></input>
-                <input class="menu"  type="submit" value="Hard"></input>
+                <input class="menu" type="submit" value="Easy" name="option"></input>
+                <input class="menu" type="submit" value="Normal" name="option"></input>
+                <input class="menu" type="submit" value="Hard" name="option"></input>
             </form>
         </div>
-        <button class="mainmenu" onClick="modal()">Leaderboard</button>        
+        <button class="mainmenu" onClick="modal()">Rules</button>
+				<div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                <span class="close" onClick="modalClose()">X</span>
+                <h2>Rules</h2>
+                </div>
+                <div class="modal-body">
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">1.</span> Sudoku is a 9x9 puzzle grid made up of nine 3x3 regions. Each region, row, and column contains nine cells each.</h3>
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">2.</span> Cells can only contain digits form 1 to 9.</h3>
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">3.</span> When you start a game, some cells are already filled, these are called hints and cannot be changed.</h3>
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">4.</span> Each digit must be found once and only once per line.</h3>
+                    <center><img src="<%= url("images/row.jpg")%>"></center>
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">5.</span> Each digit must be found once and only once per column.</h3>
+                    <center><img src="<%= url("images/column.jpg")%>"></center>
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">6.</span> And each digit must be found once and only once per region.</h3>
+                    <center><img src="<%= url("images/region.jpg")%>"></center>
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">7.</span> A sudoku is considered to be solved correctly when its 81 cells are filled and the other rules have been followed</h3>
+                    <h3 style="text-align: center"> <span style="color: rgb(200, 0, 45)">8.</span> A good sudoku puzzle has only one solution.</h3>
+                </div>
+            </div>
+        </div>
 	</div>
 </body>
 <script>
