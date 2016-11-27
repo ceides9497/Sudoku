@@ -101,11 +101,11 @@ describe Sudoku do
   end
 
   it "should return false if complete table is not correct" do
-    @sudo.is_table_correct_completed?(@board,@correctBoard).should == false
+    @sudo.is_table_completed?(@board,@correctBoard).should == false
   end
 
   it "should return true if complete table is correct" do
-    @sudo.is_table_correct_completed?(@correctBoard,@correctBoard).should == true
+    @sudo.is_table_completed?(@correctBoard,@correctBoard).should == true
   end
 
 end
