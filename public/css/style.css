@@ -24,7 +24,7 @@ body
 	color: black;
 }
 
-button.mainmenu {
+.mainmenu {
     background-color: #eee;
     color: #444;
     cursor: pointer;
@@ -36,7 +36,7 @@ button.mainmenu {
     transition: 0.4s;
 }
 
-button.mainmenu.active, button.mainmenu:hover {
+.mainmenu.active, .mainmenu:hover {
     background-color: #ddd;
 }
 

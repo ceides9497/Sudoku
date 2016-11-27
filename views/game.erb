@@ -35,10 +35,16 @@
                 <br>
                 <input type="submit" class="menu" value="Check" name="pressed">
                 <input type="submit" class="menu" value="Finish" name="pressed">
-            </form>
+            </form>           
+            <script type="text/javascript" src="<%= url("javascript/modal_and_accordion.js")%>"></script>
+            <button id="play" class="menu" onClick="accordion()">Yield</button>
+            <div class="panel">            
             <form action="/yield" method="get">
-                <input type="submit" class="menu" value="Yield">
-            </form>            
+                <h4 style="text-align:center"> Do you really want to surrender?</h4>
+                <input class="mainmenu"  type="submit" value="Yes, show me the answer"></input>
+                <button id="play" class="mainmenu" onClick="accordion()">No, I'll keep trying</button>
+            </form>
+        </div>           
 		</div>
 </body>
 </html>
