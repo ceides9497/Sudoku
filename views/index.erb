@@ -5,19 +5,19 @@
 <meta charset="UTF-8">
 <link href="<%= url("css/style.css")%>" rel="stylesheet" type="text/css">
 </head>
-    
+
 <body>
 	<h1 style="text-align:center; margin-top:15%">SUDOKU</h1>
     <div style="margin:25%; margin-top:5%">
         <button id="play" class="mainmenu" onClick="accordion()">Play</button>
         <div class="panel">
             <form action="/gettable" method="post">
-                <input class="menu"  type="submit" value="Easy"></input>
-                <input class="menu"  type="submit" value="Normal"></input>
-                <input class="menu"  type="submit" value="Hard"></input>
+                <input class="menu" type="submit" value="Easy" name="option"></input>
+                <input class="menu" type="submit" value="Normal" name="option"></input>
+                <input class="menu" type="submit" value="Hard" name="option"></input>
             </form>
         </div>
-        <button class="mainmenu" onClick="modal()">Leaderboard</button>        
+        <button class="mainmenu" onClick="modal()">Leaderboard</button>
 	</div>
 </body>
 <script>
