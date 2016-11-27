@@ -28,14 +28,16 @@ post '/gettable' do
 
 	@sudokutable = sudoku.CambiarLaDificultad(dificultad)
   @booleantable = sudoku.initBooleansTable()
-  @currenttable = sudoku.initTable()
+#  @currenttable = sudoku.initTable()
+@currenttable = sudoku.CambiarLaDificultad(dificultad)
 	erb :game
 end
 
 post '/generar' do
   sudo = Sudoku.new
   valores = params[:cell]
-@sudokutable = sudo.initTable()
+  @sudokutable = sudo.initTable()
+	#@sudokutable = sudo.CambiarLaDificultad(@dificultad)
   @currenttable = sudo.array_from_1d_to_2d(valores)
   @booleantable = sudo.check_table(valores)
   @solutionTable=sudo.getSolutionTable()
@@ -55,7 +57,8 @@ end
 
 get '/yield' do
   sudoku = Sudoku.new
-  @sudokutable = sudoku.initTable()
+ @sudokutable = sudoku.initTable()
+#	@sudokutable = sudoku.CambiarLaDificultad(@dificultad)
   @solvedtable = sudoku.getSolutionTable()
   erb :yield
 end
