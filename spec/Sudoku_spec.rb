@@ -37,7 +37,7 @@ describe Sudoku do
 
   it "Change board to easy difficulty" do
     @sudo.initTable()
-     @sudo.CambiarLaDificultad("Easy").should==@tableEasy
+     @sudo.Change_difficulty("Easy").should==@tableEasy
 
   end
 

@@ -38,7 +38,7 @@ sudokuTableHard = [[0, 0, 0, 0, 4, 0, 6, 0, 0],
 				return sudokuTableHard
 	end
 
-def CambiarLaDificultad(dificultad)
+def Change_difficulty(dificultad)
    if dificultad=="Easy"
     	return initTableEasy()
    end

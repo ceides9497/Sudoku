@@ -1,5 +1,13 @@
 require 'sinatra'
 require_relative 'lib/Sudoku.rb'
+#before do
+#  @dificultad = params[:opcion]
+  #request.path_info = '/gettable'
+#end
+
+#before do
+#  $dificultad=" "
+#end
 
 def for_message(table1)
   sudoku = Sudoku.new
@@ -18,26 +26,26 @@ end
 get '/' do
   erb :index
 end
-
+#///////////////////////////////////////////////////////////////////
 post '/gettable' do
-  dificultad=params[:opcion]
-
+  $dificultad=params[:opcion]
 
 	sudoku = Sudoku.new
   @solved=true
 
-	@sudokutable = sudoku.CambiarLaDificultad(dificultad)
+	@sudokutable = sudoku.Change_difficulty($dificultad)
   @booleantable = sudoku.initBooleansTable()
-#  @currenttable = sudoku.initTable()
-@currenttable = sudoku.CambiarLaDificultad(dificultad)
+@currenttable = sudoku.Change_difficulty($dificultad)
+
 	erb :game
 end
-
+#/////////////////////////////////////////////////////////
 post '/generar' do
   sudo = Sudoku.new
   valores = params[:cell]
-  @sudokutable = sudo.initTable()
-	#@sudokutable = sudo.CambiarLaDificultad(@dificultad)
+
+    #@sudokutable = sudo.initTableEasy()
+@sudokutable = sudo.Change_difficulty($dificultad)
   @currenttable = sudo.array_from_1d_to_2d(valores)
   @booleantable = sudo.check_table(valores)
   @solutionTable=sudo.getSolutionTable()
@@ -57,8 +65,11 @@ end
 
 get '/yield' do
   sudoku = Sudoku.new
- @sudokutable = sudoku.initTable()
-#	@sudokutable = sudoku.CambiarLaDificultad(@dificultad)
+
+  @sudokutable = sudoku.Change_difficulty($dificultad)
+
+ #@sudokutable = sudoku.initTable()
+	#@sudokutable = sudoku.initTableEasy()
   @solvedtable = sudoku.getSolutionTable()
   erb :yield
 end
